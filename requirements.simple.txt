@@ -1,0 +1,8 @@
+Flask
+flasgger
+requests
+pandas
+rejson
+gunicorn
+git+https://github.com/LIAAD/TemporalSummarizationFramework.git@refactoring
+git+https://github.com/LIAAD/py-pampo.git

@@ -13,7 +13,7 @@ NO_RESULTS_TEST_PAYLOAD = {
 }
 
 
-def test_arquivopt_get_domains():
+def test_get_domains():
     print('Testing get-domains endpoint')
 
     r = requests.get(API_ARQUIVOPT_ENDPOINT + 'get-domains')
@@ -21,10 +21,10 @@ def test_arquivopt_get_domains():
     print('Response status:', r.status_code)
     print('Response content:', r.json())
 
-# test_arquivopt_get_domains()
+# test_get_domains()
 
 
-def test_arquivopt_get_examples():
+def test_get_examples():
     print('Testing get-examples endpoint')
 
     r = requests.get(API_ARQUIVOPT_ENDPOINT + 'get-examples')
@@ -32,10 +32,10 @@ def test_arquivopt_get_examples():
     print('Response status:', r.status_code)
     print('Response content:', r.json())
 
-# test_arquivopt_get_examples()
+# test_get_examples()
 
 
-def test_arquivopt_get_result():
+def test_get_result():
     print('Testing get-result endpoint')
 
     r = requests.get(API_ARQUIVOPT_ENDPOINT +
@@ -44,10 +44,10 @@ def test_arquivopt_get_result():
     print('Response status:', r.status_code)
     print('Response content:', r.json())
 
-# test_arquivopt_get_result()
+# test_get_result()
 
 
-def test_arquivopt_get_intervals():
+def test_get_intervals():
     print('Testing get-intervals endpoint')
 
     r = requests.get(API_ARQUIVOPT_ENDPOINT +
@@ -64,10 +64,10 @@ def test_arquivopt_get_intervals():
     print('Response status:', r.status_code)
     print('Response content:', r.json())
 
-# test_arquivopt_get_intervals()
+# test_get_intervals()
 
 
-def test_arquivopt_execute_engine():
+def test_execute_engine():
     print('Testing execute-engine endpoint')
 
     r = requests.get(API_ARQUIVOPT_ENDPOINT +
@@ -76,10 +76,10 @@ def test_arquivopt_execute_engine():
     print('Response status:', r.status_code)
     print('Response content:', r.json())
 
-# test_arquivopt_execute_engine()
+# test_execute_engine()
 
 
-def test_arquivopt_get_events():
+def test_get_events():
     print('Testing get-events endpoint')
 
     r = requests.get(API_ARQUIVOPT_ENDPOINT +
@@ -92,10 +92,10 @@ def test_arquivopt_get_events():
     print('Response status:', r.status_code)
     print('Response content:', r.json())
 
-# test_arquivopt_get_events()
+# test_get_events()
 
 
-def test_arquivopt_get_titles():
+def test_get_titles():
     print('Testing get-titles endpoint')
 
     r = requests.get(API_ARQUIVOPT_ENDPOINT +
@@ -111,10 +111,10 @@ def test_arquivopt_get_titles():
     print('Response status:', r.status_code)
     print('Response content:', r.json())
 
-# test_arquivopt_get_titles()
+# test_get_titles()
 
 
-def test_arquivopt_get_entities_terms():
+def test_get_entities_terms():
     print('Testing get-entities-terms endpoint')
 
     r = requests.get(API_ARQUIVOPT_ENDPOINT +
@@ -141,10 +141,10 @@ def test_arquivopt_get_entities_terms():
     print('Response status:', r.status_code)
     print('Response content:', r.json())
 
-# test_arquivopt_get_entities_terms()
+# test_get_entities_terms()
 
 
-def test_arquivopt_get_timeseries():
+def test_get_timeseries():
     print('Testing get-timeseries endpoint')
 
     r = requests.get(API_ARQUIVOPT_ENDPOINT +
@@ -164,4 +164,4 @@ def test_arquivopt_get_timeseries():
     print('Response status:', r.status_code)
     print('Response content:', r.json())
 
-# test_arquivopt_get_timeseries()
+# test_get_timeseries()

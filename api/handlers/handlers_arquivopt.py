@@ -4,11 +4,14 @@ from datetime import datetime, date, timedelta
 import collections
 import json
 
+from pampo import ner
+
 from contamehistorias import engine
 from contamehistorias.datasources import webarchive
+
 import data_sources.arquivopt.arquivopt_examples as arquivopt_examples
 import data_sources.arquivopt.arquivopt_domains as arquivopt_domains
-from pampo import ner
+
 from .utils import convert_events_into_timeseries, convert_events_into_source_count
 
 import cache
@@ -32,7 +35,7 @@ def check_cache():
     return cache_connected
 
 
-def arquivopt_get_cache_key(query, last_years, step):
+def get_cache_key(query, last_years, step):
 
     query = str(query).lower()
     last_years = str(last_years)
@@ -45,12 +48,12 @@ def arquivopt_get_cache_key(query, last_years, step):
     return cache_key
 
 
-def arquivopt_get_domains():
+def get_domains():
 
     return arquivopt_domains.news_domains_pt
 
 
-def arquivopt_get_examples():
+def get_examples():
 
     examples_dict = {
         'stories_persons': arquivopt_examples.stories_persons,
@@ -65,7 +68,7 @@ def arquivopt_get_examples():
     return examples_dict
 
 
-def arquivopt_get_result(payload):
+def get_result(payload):
 
     cache_connected = check_cache()
 
@@ -78,7 +81,7 @@ def arquivopt_get_result(payload):
     # If cache enabled, check whether result already in cache
     if cache_connected:
 
-        cache_key = arquivopt_get_cache_key(query, last_years, 'result')
+        cache_key = get_cache_key(query, last_years, 'result')
 
         cached_result = cache.get_result(cache_key)
 
@@ -124,7 +127,7 @@ def arquivopt_get_result(payload):
     return result
 
 
-def arquivopt_get_intervals(payload):
+def get_intervals(payload):
 
     cache_connected = check_cache()
 
@@ -142,7 +145,7 @@ def arquivopt_get_intervals(payload):
     # If cache enabled, check whether result already in cache
     if cache_connected:
 
-        cache_key = arquivopt_get_cache_key(query, last_years, 'intervals')
+        cache_key = get_cache_key(query, last_years, 'intervals')
 
         cached_result = cache.get_result(cache_key)
 
@@ -174,12 +177,12 @@ def arquivopt_get_intervals(payload):
     return result
 
 
-def arquivopt_execute_engine(payload):
+def execute_engine(payload):
 
     # Get result from arquivopt
     time_start_get_result = time.time()
 
-    result_arquivo_str = arquivopt_get_result(payload)
+    result_arquivo_str = get_result(payload)
 
     time_spent_get_result = time.time() - time_start_get_result
 
@@ -194,7 +197,7 @@ def arquivopt_execute_engine(payload):
 
     time_start_build_intervals = time.time()
     
-    result_intervals = arquivopt_get_intervals(get_intervals_payload)
+    result_intervals = get_intervals(get_intervals_payload)
     
     time_spent_build_intervals = time.time() - time_start_build_intervals
 
@@ -219,7 +222,7 @@ def arquivopt_execute_engine(payload):
     return result
 
 
-def arquivopt_get_events(payload):
+def get_events(payload):
 
     keywords_by_intervals = [(item['from'], item['to'])
                              for item in payload['results']]
@@ -281,7 +284,7 @@ def arquivopt_get_events(payload):
     return result_dict
 
 
-def arquivopt_get_titles(payload):
+def get_titles(payload):
 
     all_titles = []
     for event in payload:
@@ -294,7 +297,7 @@ def arquivopt_get_titles(payload):
     return all_titles
 
 
-def arquivopt_get_entities_terms(payload):
+def get_entities_terms(payload):
 
     all_titles = payload['all_titles']
     query_term_corr = payload['query_term_corr']
@@ -315,7 +318,7 @@ def arquivopt_get_entities_terms(payload):
     return result_dict
 
 
-def arquivopt_get_timeseries(payload):
+def get_timeseries(payload):
 
     result = payload['result']
     end_intervals_dates = payload['end_intervals_dates']

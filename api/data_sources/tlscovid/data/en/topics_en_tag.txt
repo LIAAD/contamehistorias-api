@@ -1,0 +1,35 @@
+california LOC
+white house ORG
+china LOC
+mexico LOC
+asia LOC
+centers for disease control and prevention ORG
+italy LOC
+wuhan LOC
+brazil LOC
+australia LOC
+boris johnson PER
+new york LOC
+florida LOC
+germany LOC
+who ORG
+joe biden PER
+russia LOC
+victoria LOC
+un ORG
+pfizer ORG
+france LOC
+canada LOC
+india LOC
+japan LOC
+trump PER
+europe LOC
+spain LOC
+latin america LOC
+london LOC
+coronavirus KW
+south korea LOC
+hong kong LOC
+beijing LOC
+texas LOC
+johns hopkins university ORG

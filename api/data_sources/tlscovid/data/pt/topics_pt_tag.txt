@@ -1,0 +1,143 @@
+açores LOC
+áfrica austral LOC
+áfrica do sul LOC
+áfrica LOC
+alemanha LOC
+alentejo LOC
+algarve LOC
+amadora LOC
+américa latina LOC
+ana mendes godinho PER
+andrew cuomo PER
+angela merkel PER
+antónio costa PER
+antónio lacerda sales PER
+argélia LOC
+argentina LOC
+austrália LOC
+áustria LOC
+aveiro LOC
+bloco de esquerda ORG
+beja LOC
+bélgica LOC
+jair bolsonaro PER
+boris johnson PER
+braga LOC
+bragança LOC
+brasil LOC
+bruxelas LOC
+califórnia LOC
+canadá LOC
+casa branca ORG
+cascais LOC
+cds ORG
+chega ORG
+china LOC
+coimbra LOC
+comissão de saúde da china ORG
+comissão europeia ORG
+conselho de ministros ORG
+conselho europeu ORG
+coreia do sul LOC
+diário da república KW
+dinamarca LOC
+economia KW
+eduardo cabrita PER
+emmanuel macron PER
+escócia LOC
+espanha LOC
+estado de emergência KW
+eua LOC
+europa LOC
+évora LOC
+florida LOC
+forças armadas ORG
+franca LOC
+guarda nacional republicana ORG
+graça freitas PER
+grécia LOC
+holanda LOC
+hong kong LOC
+hungria LOC
+ilha de são miguel LOC
+índia LOC
+infarmed ORG
+iniciativa liberal ORG
+instituto de administração da saúde ORG
+instituto robert koch ORG
+irão LOC
+irlanda LOC
+israel LOC
+itália LOC
+japão LOC
+joe biden PER
+lisboa LOC
+londres LOC
+loures LOC
+macau LOC
+madeira LOC
+madrid LOC
+marcelo rebelo de sousa PER
+marta temido PER
+matosinhos LOC
+méxico LOC
+ministério da administração interna ORG
+ministério da educação ORG
+ministério da saúde do brasil ORG
+moscovo LOC
+natal KW
+nova iorque LOC
+odivelas LOC
+oms ORG
+onu ORG
+ordem dos médicos ORG
+ordem dos enfermeiros ORG
+ovar LOC
+país de gales LOC
+países baixos LOC
+pan ORG
+pandemia KW
+paris LOC
+páscoa KW
+pcp ORG
+pedro sanchez PER
+pequim LOC
+peru LOC
+polónia LOC
+porto LOC
+portugal LOC
+prevenção de doenças da união africana ORG
+profissionais de saúde KW
+partido socialista ORG
+psd ORG
+polícia de segurança pública ORG
+reguengos de monsaraz LOC
+reino unido LOC
+república checa LOC
+rio de janeiro LOC
+rússia LOC
+santarém LOC
+são miguel LOC
+são paulo LOC
+saúde pública KW
+segurança social ORG
+serviço nacional de saúde ORG
+setúbal LOC
+sintra LOC
+stayaway covid KW
+suécia LOC
+suíça LOC
+tap ORG
+tedros adhanom ghebreyesus PER
+texas LOC
+trabalho KW
+donald trump PER
+união europeia ORG
+universidade de oxford ORG
+universidade johns hopkins ORG
+ursula von der leyen PER
+vacina KW
+venezuela LOC
+vila real LOC
+wuhan LOC
+xangai LOC

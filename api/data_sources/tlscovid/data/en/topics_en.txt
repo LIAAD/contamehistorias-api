@@ -1,0 +1,35 @@
+california
+white house,the white house
+china,chinese
+mexico
+asia
+centers for disease control and prevention,cdc
+italy
+wuhan
+brazil
+australia,australian
+boris johnson
+new york
+florida
+germany
+who,world health organization,the world health organization
+joe biden
+russia
+victoria
+un
+pfizer
+france,french
+canada
+india
+japan
+trump,donald trump,president donald trump
+europe
+spain
+latin america
+london
+coronavirus
+south korea
+hong kong
+beijing
+texas
+johns hopkins university,johns hopkins

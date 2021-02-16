@@ -1,0 +1,852 @@
+[
+    {
+        "topic": "coronavirus",
+        "lan": "en",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "asia",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "australia",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "beijing",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "brazil",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "california",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "canada",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "china",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "europe",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "florida",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "france",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "germany",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "hong kong",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "india",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "italy",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "japan",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "latin america",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "london",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "mexico",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "new york",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "russia",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "south korea",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "spain",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "texas",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "victoria",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "wuhan",
+        "lan": "en",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "centers for disease control and prevention",
+        "lan": "en",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "johns hopkins university",
+        "lan": "en",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "pfizer",
+        "lan": "en",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "un",
+        "lan": "en",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "white house",
+        "lan": "en",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "who",
+        "lan": "en",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "boris johnson",
+        "lan": "en",
+        "type": "PERSON"
+    },
+    {
+        "topic": "joe biden",
+        "lan": "en",
+        "type": "PERSON"
+    },
+    {
+        "topic": "trump",
+        "lan": "en",
+        "type": "PERSON"
+    },
+    {
+        "topic": "diário da república",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "economia",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "estado de emergência",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "natal",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "pandemia",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "profissionais de saúde",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "páscoa",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "saúde pública",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "stayaway covid",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "trabalho",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "vacina",
+        "lan": "pt",
+        "type": "KEYWORD"
+    },
+    {
+        "topic": "alemanha",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "alentejo",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "algarve",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "amadora",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "américa latina",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "argentina",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "austrália",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "aveiro",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "açores",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "beja",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "braga",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "bragança",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "brasil",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "bruxelas",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "bélgica",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "califórnia",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "canadá",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "cascais",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "china",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "coimbra",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "coreia do sul",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "dinamarca",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "escócia",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "espanha",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "eua",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "europa",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "florida",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "grécia",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "holanda",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "hong kong",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "hungria",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "irlanda",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "irão",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "israel",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "itália",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "japão",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "lisboa",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "londres",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "loures",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "macau",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "madeira",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "madrid",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "matosinhos",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "moscovo",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "méxico",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "nova iorque",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "odivelas",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "ovar",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "pan",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "paris",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "país de gales",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "países baixos",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "pequim",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "peru",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "polónia",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "porto",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "portugal",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "reguengos de monsaraz",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "reino unido",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "república checa",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "rio de janeiro",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "rússia",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "santarém",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "setúbal",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "sintra",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "suécia",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "suíça",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "são miguel",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "são paulo",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "texas",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "venezuela",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "vila real",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "wuhan",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "xangai",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "áfrica",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "áfrica do sul",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "áustria",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "évora",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "índia",
+        "lan": "pt",
+        "type": "LOCATION"
+    },
+    {
+        "topic": "bloco de esquerda",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "casa branca",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "cds",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "chega",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "comissão de saúde da china",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "comissão europeia",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "conselho de ministros",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "conselho europeu",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "forças armadas",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "guarda nacional republicana",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "infarmed",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "iniciativa liberal",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "instituto de administração da saúde",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "instituto robert koch",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "ministério da administração interna",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "ministério da educação",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "oms",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "onu",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "ordem dos médicos",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "partido socialista",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "pcp",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "polícia de segurança pública",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "psd",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "segurança social",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "serviço nacional de saúde",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "tap",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "universidade de oxford",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "universidade johns hopkins",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "união europeia",
+        "lan": "pt",
+        "type": "ORGANIZATION"
+    },
+    {
+        "topic": "ana mendes godinho",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "andrew cuomo",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "angela merkel",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "antónio costa",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "antónio lacerda sales",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "boris johnson",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "donald trump",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "eduardo cabrita",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "emmanuel macron",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "graça freitas",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "jair bolsonaro",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "joe biden",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "marcelo rebelo de sousa",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "marta temido",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "tedros adhanom ghebreyesus",
+        "lan": "pt",
+        "type": "PERSON"
+    },
+    {
+        "topic": "ursula von der leyen",
+        "lan": "pt",
+        "type": "PERSON"
+    }
+]

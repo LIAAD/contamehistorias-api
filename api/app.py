@@ -4,6 +4,7 @@ from flask import Flask
 from flasgger import Swagger
 
 from views.api_arquivopt import api_arquivopt
+from views.api_tlscovid import api_tlscovid
 
 from settings import config
 
@@ -19,6 +20,7 @@ def create_app():
     swagger = Swagger(app)
 
     app.register_blueprint(api_arquivopt, url_prefix='/api/arquivopt')
+    app.register_blueprint(api_tlscovid, url_prefix='/api/tlscovid')
 
     return app
 

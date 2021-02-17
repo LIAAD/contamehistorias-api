@@ -6,8 +6,8 @@ import json
 
 from pampo import ner
 
-from TemporalSummarizationFramework.contamehistorias import engine
-from TemporalSummarizationFramework.contamehistorias.datasources import tlscovid
+from contamehistorias import engine
+from contamehistorias.datasources import tlscovid
 
 import data_sources.tlscovid.tlscovid_domains as tlscovid_domains
 

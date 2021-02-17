@@ -2,13 +2,19 @@ import requests
 
 API_TLSCOVID_ENDPOINT = 'http://localhost:5001/api/tlscovid/'
 
-MAIN_TEST_PAYLOAD = {
+TEST_PAYLOAD = {
     'query': 'portugal',
     'index': 'pt'
 }
 
-NO_RESULTS_TEST_PAYLOAD = {
-    'query': 'obama',
+TEST_PAYLOAD_WITH_SOURCES = {
+    'query': 'portugal',
+    'index': 'pt',
+    'sources': ['publico']
+}
+
+TEST_PAYLOAD_NO_RESULTS = {
+    'query': '',
     'index': 'en'
 }
 
@@ -39,7 +45,7 @@ def test_get_result():
     print('Testing get-result endpoint')
 
     r = requests.get(API_TLSCOVID_ENDPOINT +
-                     'get-result', json=MAIN_TEST_PAYLOAD)
+                     'get-result', json=TEST_PAYLOAD)
 
     print('Response status:', r.status_code)
     print('Response content:', r.json())
@@ -51,11 +57,11 @@ def test_get_intervals():
     print('Testing get-intervals endpoint')
 
     r = requests.get(API_TLSCOVID_ENDPOINT +
-                     'get-result', json=MAIN_TEST_PAYLOAD)
+                     'get-result', json=TEST_PAYLOAD)
 
     result_str = r.json()
 
-    payload = MAIN_TEST_PAYLOAD
+    payload = TEST_PAYLOAD
     payload['result'] = result_str
 
     r = requests.get(API_TLSCOVID_ENDPOINT +
@@ -71,7 +77,7 @@ def test_execute_engine():
     print('Testing execute-engine endpoint')
 
     r = requests.get(API_TLSCOVID_ENDPOINT +
-                     'execute-engine', json=MAIN_TEST_PAYLOAD)
+                     'execute-engine', json=TEST_PAYLOAD)
 
     print('Response status:', r.status_code)
     print('Response content:', r.json())
@@ -83,7 +89,7 @@ def test_get_events():
     print('Testing get-events endpoint')
 
     r = requests.get(API_TLSCOVID_ENDPOINT +
-                     'execute-engine', json=MAIN_TEST_PAYLOAD)
+                     'execute-engine', json=TEST_PAYLOAD)
 
     result_engine = r.json()
 
@@ -99,7 +105,7 @@ def test_get_titles():
     print('Testing get-titles endpoint')
 
     r = requests.get(API_TLSCOVID_ENDPOINT +
-                     'execute-engine', json=MAIN_TEST_PAYLOAD)
+                     'execute-engine', json=TEST_PAYLOAD)
     result_engine = r.json()
 
     r = requests.get(API_TLSCOVID_ENDPOINT + 'get-events', json=result_engine)
@@ -118,7 +124,7 @@ def test_get_entities_terms():
     print('Testing get-entities-terms endpoint')
 
     r = requests.get(API_TLSCOVID_ENDPOINT +
-                     'execute-engine', json=MAIN_TEST_PAYLOAD)
+                     'execute-engine', json=TEST_PAYLOAD)
     result_engine = r.json()
 
     r = requests.get(API_TLSCOVID_ENDPOINT + 'get-events', json=result_engine)
@@ -148,7 +154,7 @@ def test_get_timeseries():
     print('Testing get-timeseries endpoint')
 
     r = requests.get(API_TLSCOVID_ENDPOINT +
-                     'execute-engine', json=MAIN_TEST_PAYLOAD)
+                     'execute-engine', json=TEST_PAYLOAD)
     result_engine = r.json()
 
     r = requests.get(API_TLSCOVID_ENDPOINT + 'get-events', json=result_engine)

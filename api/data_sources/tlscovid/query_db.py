@@ -45,11 +45,44 @@ def get_docs_from_query(es, index, query):
     return response
 
 
+def get_documents_from_query_by_sources(es, index, query, sources):
+
+    query_body = {
+        "query": {
+            "bool": {
+                "must": [
+                    {
+                        "match": {
+                            "news": query
+                        }
+                    },
+                    {
+                        "terms": {
+                            "source": sources
+                        }
+                    }
+                ]
+            }
+        }
+    }
+
+    es_response = helpers.scan(
+        es,
+        index=index,
+        query=query_body
+    )
+
+    return es_response
+
+
 def get_mapping(es, index):
     mapping = es.indices.get_mapping(index)
     return mapping
 
 
-# config = utils.load_json(utils.CONFIG_PATH)
+config = utils.load_json(utils.CONFIG_PATH)
 
-# es = Elasticsearch([{'host': config['host'], 'port': config['port']}])
+es = Elasticsearch([{'host': config['host'], 'port': config['port']}])
+
+for d in get_documents_from_query_by_sources(es, 'en', 'trump', ['cnn']):
+    print(d)

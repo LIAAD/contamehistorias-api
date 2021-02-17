@@ -6,8 +6,8 @@ import json
 
 from pampo import ner
 
-from contamehistorias import engine
-from contamehistorias.datasources import tlscovid
+from TemporalSummarizationFramework.contamehistorias import engine
+from TemporalSummarizationFramework.contamehistorias.datasources import tlscovid
 
 import data_sources.tlscovid.tlscovid_domains as tlscovid_domains
 
@@ -34,12 +34,12 @@ def check_cache():
     return cache_connected
 
 
-def get_cache_key(query, index, step):
+def get_cache_key(query, index, sources, step):
 
     query = str(query).lower()
     index = str(index).lower()
 
-    cache_key = {'source': 'tlscovid', 'query': query, 'index': index, 'step': step}
+    cache_key = {'source': 'tlscovid', 'query': query, 'index': index, 'sources': sources, 'step': step}
     cache_key = json.dumps(cache_key, sort_keys=True).encode('utf-8')
 
     cache_key = hashlib.md5(cache_key).hexdigest()
@@ -74,13 +74,20 @@ def get_result(payload):
     query = payload['query']
     index = payload['index']
 
+    # sources is optional
+    if 'sources' in payload:
+        sources = payload['sources']
+    else:
+        sources = []
+
     print('Query:', query)
     print('Index:', index)
+    print('Sources:', sources)
 
     # If cache enabled, check whether result already in cache
     if cache_connected:
 
-        cache_key = get_cache_key(query, index, 'result')
+        cache_key = get_cache_key(query, index, sources, 'result')
 
         cached_result = cache.get_result(cache_key)
 
@@ -95,6 +102,9 @@ def get_result(payload):
 
             params = {'index': index}
 
+            if sources:
+                params['sources'] = sources
+
             result = tlscovid_engine.getResult(query, **params)
 
             result = tlscovid_engine.toStr(result)
@@ -107,6 +117,9 @@ def get_result(payload):
         print('get_result: Cache disabled. Computing result')
 
         params = {'index': index}
+
+        if sources:
+            params['sources'] = sources
 
         result = tlscovid_engine.getResult(query, **params)
 
@@ -122,6 +135,12 @@ def get_intervals(payload):
     query = payload['query']
     index = payload['index']
 
+    # sources is optional
+    if 'sources' in payload:
+        sources = payload['sources']
+    else:
+        sources = []
+
     result_tlscovid_str = payload['result']
     result_tlscovid = tlscovid_engine.toObj(result_tlscovid_str)
 
@@ -133,7 +152,7 @@ def get_intervals(payload):
     # If cache enabled, check whether result already in cache
     if cache_connected:
 
-        cache_key = get_cache_key(query, index, 'intervals')
+        cache_key = get_cache_key(query, index, sources, 'intervals')
 
         cached_result = cache.get_result(cache_key)
 

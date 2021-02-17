@@ -29,7 +29,8 @@ def get_result():
     # Handle request
     payload = request.json
 
-    # payload as {'query': str,' index': str}
+    # payload as {'query': str, 'index': str, 'sources': list of str}
+    # sources is optional
 
     result = handlers_tlscovid.get_result(payload)
 
@@ -42,7 +43,8 @@ def get_intervals():
     # Handle request
     payload = request.json
 
-    # payload as {'query': str,' index': str, 'result': from /get-result}
+    # payload as {'query': str, 'index': str, 'sources': list of str, 'result': from /get-result}
+    # sources is optional
 
     result = handlers_tlscovid.get_intervals(payload)
 
@@ -55,7 +57,7 @@ def execute_engine():
     # Handle request
     payload = request.json
 
-    # payload as {'query': str,' index': str}
+    # payload as {'query': str, 'index': str}
 
     result = handlers_tlscovid.execute_engine(payload)
 

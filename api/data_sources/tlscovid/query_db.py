@@ -45,9 +45,9 @@ def get_docs_from_query(es, index, query):
     return response
 
 
-def get_mapping(index):
+def get_mapping(es, index):
     mapping = es.indices.get_mapping(index)
-    print(mapping)
+    return mapping
 
 
 # config = utils.load_json(utils.CONFIG_PATH)

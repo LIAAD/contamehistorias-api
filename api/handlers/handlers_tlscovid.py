@@ -179,7 +179,7 @@ def get_intervals(payload):
         result_intervals = temp_summ_engine.build_intervals(
             result_tlscovid, index, query)
 
-        result = temp_summ_engine.serialize(result_intervals)
+        result = temp_summ_engine.serialize(result_intervals, tls_covid=True)
 
     return result
 

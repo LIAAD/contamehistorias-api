@@ -3,7 +3,7 @@ certifi==2020.12.5
 chardet==4.0.0
 click==7.1.2
 click-datetime==0.2
-contamehistorias @ git+https://github.com/LIAAD/TemporalSummarizationFramework.git@ed8be0b0efc8eda22c0ca09a785ef1f8a277f1b1
+contamehistorias @ git+https://github.com/LIAAD/TemporalSummarizationFramework.git@7ba4f56a6b8e90103311ec79b3589e8dbae783ef
 decorator==4.4.2
 elasticsearch==7.10.1
 flasgger==0.9.5

@@ -255,11 +255,11 @@ def get_events(payload):
             d_dict[res_event['date_id_str']] = 1
 
             res_event['date_readable_str'] = event_date.strftime(
-                '%b %Y')
+                '%m/%Y')
             res_event['date_full_readable_str'] = event_date.strftime(
-                '%d, %B %Y')
+                '%d/%m/%Y')
             res_event['from_date_full_readable_str'] = event_date_from.strftime(
-                '%d, %B %Y')
+                '%d/%m/%Y')
 
             end_intervals_dates.append(event_date.strftime('%Y-%m-%d'))
 

@@ -47,9 +47,20 @@ def get_cache_key(query, index, sources, step):
     return cache_key
 
 
-def get_domains():
+def get_indices():
 
-    return tlscovid_domains.news_domains
+    return tlscovid_engine.get_all_indices()
+
+
+def get_domains(payload):
+
+    if payload and 'index' in payload:
+        index = str(payload['index']).lower()
+        domains = [domain for domain in tlscovid_domains.news_domains if domain['lang'] == index]
+    else:
+        domains = tlscovid_domains.news_domains
+
+    return domains
 
 
 def get_examples():

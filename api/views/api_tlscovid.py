@@ -5,11 +5,23 @@ from handlers import handlers_tlscovid
 api_tlscovid = Blueprint('api_tlscovid', __name__)
 
 
+@api_tlscovid.route('/get-indices', methods=['GET'])
+def get_indices():
+
+    # Handle request
+    result = handlers_tlscovid.get_indices()
+
+    return jsonify(result), 200
+
+
 @api_tlscovid.route('/get-domains', methods=['GET'])
 def get_domains():
 
     # Handle request
-    result = handlers_tlscovid.get_domains()
+    payload = request.json
+
+    # Handle request
+    result = handlers_tlscovid.get_domains(payload)
 
     return jsonify(result), 200
 

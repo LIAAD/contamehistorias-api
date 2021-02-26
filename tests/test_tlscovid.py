@@ -19,6 +19,17 @@ TEST_PAYLOAD_NO_RESULTS = {
 }
 
 
+def test_get_indices():
+    print('Testing get-indices endpoint')
+
+    r = requests.get(API_TLSCOVID_ENDPOINT + 'get-indices')
+
+    print('Response status:', r.status_code)
+    print('Response content:', r.json())
+
+# test_get_indices()
+
+
 def test_get_domains():
     print('Testing get-domains endpoint')
 

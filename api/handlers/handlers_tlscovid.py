@@ -18,6 +18,7 @@ import cache
 temp_summ_engine = engine.TemporalSummarizationEngine()
 tlscovid_engine = tlscovid.ElasticSearchCovid()
 
+SOURCE = 'tlscovid'
 
 DATE_FORMAT_INPUT = '%Y-%m-%d %H:%M:%S'
 DATE_FORMAT_OUTPUT = '%d/%m/%Y'
@@ -39,10 +40,17 @@ def get_cache_key(query, index, sources, step):
     query = str(query).lower()
     index = str(index).lower()
 
-    cache_key = {'source': 'tlscovid', 'query': query, 'index': index, 'sources': sources, 'step': step}
+    cache_key = {'source': SOURCE, 'query': query, 'index': index, 'sources': sources, 'step': step}
     cache_key = json.dumps(cache_key, sort_keys=True).encode('utf-8')
 
     cache_key = hashlib.md5(cache_key).hexdigest()
+
+    if not sources:
+        sources_str = 'all-sources'
+    else:
+        sources_str = '-'.join(s for s in sources)
+
+    cache_key += '_' + SOURCE + '_' + query.replace(' ', '-') + '_' + index + '_' + sources_str + '_' + step
 
     return cache_key
 

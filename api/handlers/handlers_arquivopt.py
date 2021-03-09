@@ -19,6 +19,7 @@ import cache
 temp_summ_engine = engine.TemporalSummarizationEngine()
 arquivopt_engine = webarchive.ArquivoPT()
 
+SOURCE = 'arquivopt'
 
 DATE_FORMAT_INPUT = '%Y-%m-%d %H:%M:%S'
 DATE_FORMAT_OUTPUT = '%d/%m/%Y'
@@ -40,10 +41,12 @@ def get_cache_key(query, last_years, step):
     query = str(query).lower()
     last_years = str(last_years)
 
-    cache_key = {'source': 'arquivopt', 'query': query, 'last_years': last_years, 'step': step}
+    cache_key = {'source': SOURCE, 'query': query, 'last_years': last_years, 'step': step}
     cache_key = json.dumps(cache_key, sort_keys=True).encode('utf-8')
 
     cache_key = hashlib.md5(cache_key).hexdigest()
+
+    cache_key += '_' + SOURCE + '_' + query.replace(' ', '-') + '_' + last_years + '_' + step
 
     return cache_key
 

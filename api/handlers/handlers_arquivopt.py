@@ -14,7 +14,7 @@ import data_sources.arquivopt.arquivopt_domains as arquivopt_domains
 
 from .utils import convert_events_into_timeseries, convert_events_into_source_count
 
-import cache
+from cache import cache
 
 temp_summ_engine = engine.TemporalSummarizationEngine()
 arquivopt_engine = webarchive.ArquivoPT()

@@ -13,7 +13,7 @@ import data_sources.tlscovid.tlscovid_domains as tlscovid_domains
 
 from .utils import convert_events_into_timeseries, convert_events_into_source_count
 
-import cache
+from cache import cache
 
 temp_summ_engine = engine.TemporalSummarizationEngine()
 tlscovid_engine = tlscovid.ElasticSearchCovid()

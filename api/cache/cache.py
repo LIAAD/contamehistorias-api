@@ -1,14 +1,14 @@
 from rejson import Client, Path
-from redis import ConnectionError
+import redis
 
 rj = Client(host='localhost', port=6379, decode_responses=True)
-jp = rj.pipeline()
+r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
 def is_connected():
     try:
         rj.ping()
         return True
-    except ConnectionError:
+    except redis.ConnectionError:
         return False
 
 def set_result(key, data):
@@ -20,6 +20,13 @@ def get_result(key):
 def delete_result(key):
     rj.jsondel(key, Path.rootPath())
 
+def get_keys_by_match(match='*'):
+    return r.scan_iter(match=match)
+
+def delete_keys_by_match(match='*'):
+    keys = list(get_keys_by_match(match))
+    for k in keys:
+        r.delete(k)
+
 def delete_cache():
-    jp.flushall()
-    jp.execute()
+    return r.flushall()

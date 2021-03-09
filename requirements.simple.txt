@@ -4,5 +4,6 @@ requests
 pandas
 rejson
 gunicorn
+click
 git+https://github.com/LIAAD/TemporalSummarizationFramework.git@refactoring
 git+https://github.com/LIAAD/py-pampo.git

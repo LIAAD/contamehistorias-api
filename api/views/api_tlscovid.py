@@ -126,3 +126,29 @@ def get_timeseries():
     result = handlers_tlscovid.get_timeseries(payload)
 
     return jsonify(result), 200
+
+
+@api_tlscovid.route('/get-docs-in-range', methods=['GET'])
+def get_docs_in_range():
+
+    # Handle request
+    payload = request.json
+
+    # payload is {'query': str, 'index': str, 'sources': list of str, 'start_date': 'YYYY-MM-DD', 'end_date': 'YYYY-MM-DD'}
+
+    result = handlers_tlscovid.get_documents_from_query_in_date_range(payload)
+
+    return jsonify(result), 200
+
+
+@api_tlscovid.route('/get-keymoments-in-range', methods=['GET'])
+def get_key_moments_in_range():
+
+    # Handle request
+    payload = request.json
+
+    # payload is {'query': str, 'index': str, 'sources': list of str, 'start_date': 'YYYY-MM-DD', 'end_date': 'YYYY-MM-DD'}
+
+    result = handlers_tlscovid.get_key_moments_from_query_in_date_range(payload)
+
+    return jsonify(result), 200

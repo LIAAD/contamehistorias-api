@@ -13,6 +13,14 @@ TEST_PAYLOAD_WITH_SOURCES = {
     'sources': ['publico']
 }
 
+TEST_PAYLOAD_WITH_SOURCES_DATE_RANGE = {
+    'query': 'alemanha',
+    'index': 'pt',
+    'sources': ['publico'],
+    'start_date': '2020-12-23',
+    'end_date': '2020-12-24'
+}
+
 TEST_PAYLOAD_NO_RESULTS = {
     'query': '',
     'index': 'en'
@@ -182,3 +190,25 @@ def test_get_timeseries():
     print('Response content:', r.json())
 
 # test_get_timeseries()
+
+
+def test_get_documents_from_query_in_date_range():
+    print('Testing get-docs-in-range endpoint')
+
+    r = requests.get(API_TLSCOVID_ENDPOINT + 'get-docs-in-range', json=TEST_PAYLOAD_WITH_SOURCES_DATE_RANGE)
+
+    print('Response status:', r.status_code)
+    print('Response content:', r.json())
+
+# test_get_documents_from_query_in_date_range()
+
+
+def test_get_key_moments_from_query_in_date_range():
+    print('Testing get-keymoments-in-range endpoint')
+
+    r = requests.get(API_TLSCOVID_ENDPOINT + 'get-keymoments-in-range', json=TEST_PAYLOAD_WITH_SOURCES_DATE_RANGE)
+
+    print('Response status:', r.status_code)
+    print('Response content:', r.json())
+
+# test_get_key_moments_from_query_in_date_range()

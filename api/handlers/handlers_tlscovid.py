@@ -387,3 +387,29 @@ def get_timeseries(payload):
     }
 
     return result_dict
+
+
+def get_documents_from_query_in_date_range(payload):
+
+    query = payload['query']
+    index = payload['index']
+    sources = payload['sources']
+    start_date = payload['start_date']
+    end_date = payload['end_date']
+
+    result = tlscovid_engine.get_documents_from_query_by_sources_in_date_range(index, query, sources, start_date, end_date)
+
+    return result
+
+
+def get_key_moments_from_query_in_date_range(payload):
+
+    query = payload['query']
+    index = payload['index']
+    sources = payload['sources']
+    start_date = payload['start_date']
+    end_date = payload['end_date']
+
+    result = tlscovid_engine.get_key_moments_from_query_by_sources_in_date_range(index, query, sources, start_date, end_date)
+
+    return result

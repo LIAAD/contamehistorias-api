@@ -15,7 +15,7 @@ from .utils import convert_events_into_timeseries, convert_events_into_source_co
 
 from cache import cache
 
-temp_summ_engine = engine.TemporalSummarizationEngine()
+temp_summ_engine = engine.TemporalSummarizationEngine(top=10)
 tlscovid_engine = tlscovid.ElasticSearchCovid()
 
 SOURCE = 'tlscovid'

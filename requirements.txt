@@ -3,9 +3,9 @@ certifi==2020.12.5
 chardet==4.0.0
 click==7.1.2
 click-datetime==0.2
-contamehistorias @ git+https://github.com/LIAAD/TemporalSummarizationFramework.git@dd84c0c337c363b9b3f368b1a5b226b45aa18ea2
+contamehistorias @ git+https://github.com/LIAAD/TemporalSummarizationFramework.git@251ffa91b64ccaa5e5a8fb1cbb340567d7acfab3
 decorator==4.4.2
-elasticsearch==7.10.1
+elasticsearch==7.12.0
 flasgger==0.9.5
 Flask==1.1.2
 gunicorn==20.0.4
@@ -22,7 +22,7 @@ networkx==2.5
 nltk==3.5
 numpy==1.20.1
 pampo @ git+https://github.com/LIAAD/py-pampo.git@ac53ef1183f9f839b503e42458f99d1f1c699468
-pandas==1.2.2
+pandas==1.2.3
 pyrsistent==0.17.3
 python-dateutil==2.8.1
 python-pcre==0.7
@@ -30,14 +30,14 @@ pytz==2021.1
 PyYAML==5.4.1
 recordclass==0.14.3
 redis==3.5.3
-regex==2020.11.13
+regex==2021.3.17
 rejson==0.5.4
 requests==2.25.1
-scipy==1.6.0
+scipy==1.6.1
 segtok==1.5.10
 six==1.15.0
 stop-words==2018.7.23
-tqdm==4.56.1
+tqdm==4.59.0
 Unidecode==1.2.0
-urllib3==1.26.3
+urllib3==1.26.4
 Werkzeug==1.0.1

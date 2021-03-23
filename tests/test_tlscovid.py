@@ -13,6 +13,13 @@ TEST_PAYLOAD_WITH_SOURCES = {
     'sources': ['publico']
 }
 
+TEST_PAYLOAD_WITH_USEHEADLINE = {
+    'query': 'portugal',
+    'index': 'pt',
+    'sources': ['publico'],
+    'use_headline': 'False'
+}
+
 TEST_PAYLOAD_WITH_SOURCES_DATE_RANGE = {
     'query': 'alemanha',
     'index': 'pt',

@@ -35,12 +35,19 @@ def check_cache():
     return cache_connected
 
 
-def get_cache_key(query, index, sources, step):
+def get_cache_key(query, index, sources, step, use_headline=False):
 
     query = str(query).lower()
     index = str(index).lower()
 
     cache_key = {'source': SOURCE, 'query': query, 'index': index, 'sources': sources, 'step': step}
+
+    if step == 'intervals':
+        if use_headline:
+            cache_key['use_headline'] = 'contents'
+        else:
+            cache_key['use_headline'] = 'titles'
+
     cache_key = json.dumps(cache_key, sort_keys=True).encode('utf-8')
 
     cache_key = hashlib.md5(cache_key).hexdigest()
@@ -50,7 +57,17 @@ def get_cache_key(query, index, sources, step):
     else:
         sources_str = '-'.join(s for s in sources)
 
-    cache_key += '_' + SOURCE + '_' + query.replace(' ', '-') + '_' + index + '_' + sources_str + '_' + step
+    cache_key += '_' + SOURCE + '_' + query.replace(' ', '-') + '_' + index + '_' + sources_str
+
+    if step == 'intervals':
+        if use_headline:
+            cache_key += '_contents'
+        else:
+            cache_key += '_titles'
+
+    cache_key += '_' + step
+
+    print(cache_key)
 
     return cache_key
 
@@ -160,6 +177,23 @@ def get_intervals(payload):
     else:
         sources = []
 
+    # use_headline: bool
+    # if True, use news contents
+    # if False, use news titles
+    # defaults to False
+    if 'use_headline' in payload:
+        # If it is already a bool get its value
+        if isinstance(payload['use_headline'], bool):
+            use_headline = payload['use_headline']
+        # Else, parse it
+        else:
+            try:
+                use_headline = json.loads(payload['use_headline'].lower())
+            except:
+                use_headline = False
+    else:
+        use_headline = False
+
     result_tlscovid_str = payload['result']
     result_tlscovid = tlscovid_engine.toObj(result_tlscovid_str)
 
@@ -171,7 +205,7 @@ def get_intervals(payload):
     # If cache enabled, check whether result already in cache
     if cache_connected:
 
-        cache_key = get_cache_key(query, index, sources, 'intervals')
+        cache_key = get_cache_key(query, index, sources, 'intervals', use_headline=use_headline)
 
         cached_result = cache.get_result(cache_key)
 
@@ -185,7 +219,7 @@ def get_intervals(payload):
             print('get_intervals: Result not in cache')
 
             result_intervals = temp_summ_engine.build_intervals(
-                result_tlscovid, index, query)
+                result_tlscovid, index, query, use_headline=use_headline)
 
             result = temp_summ_engine.serialize(result_intervals, tls_covid=True)
 
@@ -196,7 +230,7 @@ def get_intervals(payload):
     else:
         print('get_intervals: Cache disabled. Computing result')
         result_intervals = temp_summ_engine.build_intervals(
-            result_tlscovid, index, query)
+            result_tlscovid, index, query, use_headline=use_headline)
 
         result = temp_summ_engine.serialize(result_intervals, tls_covid=True)
 

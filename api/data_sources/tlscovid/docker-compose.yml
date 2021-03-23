@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   elastic_search:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.11.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     container_name: elastic_search
     environment:
       - discovery.type=single-node
@@ -14,7 +14,7 @@ services:
       - elastic
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.11.0
+    image: docker.elastic.co/kibana/kibana:7.12.0
     container_name: kibana
     ports:
       - "5601:5601"

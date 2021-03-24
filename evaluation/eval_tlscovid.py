@@ -1,6 +1,9 @@
+import logging
 import json
 from datetime import datetime
 import requests
+
+logging.basicConfig(format='%(message)s', level=logging.INFO)
 
 API_TLSCOVID_ENDPOINT = 'http://localhost:5001/api/tlscovid/'
 
@@ -23,13 +26,11 @@ def write_report(data):
 # Automatically get topics, domains and interval size
 
 # def get_topics():
-#     r = requests.get(API_TLSCOVID_ENDPOINT +
-#                      'get-result', json=PAYLOAD)
+#     r = requests.get(API_TLSCOVID_ENDPOINT + 'get-examples')
 
 
 # def get_domains():
-#     r = requests.get(API_TLSCOVID_ENDPOINT +
-#                      'get-result', json=PAYLOAD)
+#     r = requests.get(API_TLSCOVID_ENDPOINT + 'get-domains')
 
 
 def get_precision(kms_retrieved, docs_total):
@@ -58,7 +59,7 @@ def compute_metrics():
                      'get-intervals', json=payload)
 
     query = payload['query']
-    print('Query:', query)
+    logging.info('Query: ' + query)
 
     intervals = r.json()['results']
 
@@ -75,7 +76,7 @@ def compute_metrics():
         interval_report['start_date'] = start_date
         interval_report['end_date'] = end_date
 
-        print(start_date, "until", end_date)
+        logging.info("from " + start_date + " until " + end_date)
         
         keyphrases = interval["keyphrases"]
         
@@ -104,6 +105,7 @@ def compute_metrics():
 
     return query_report
 
-stats = compute_metrics()
 
-write_report(stats)
+if __name__ == '__main__':
+    stats = compute_metrics()
+    write_report(stats)

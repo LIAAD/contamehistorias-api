@@ -13,24 +13,38 @@ PAYLOAD = {
     'sources': ['publico', 'observador']
 }
 
+# ToDo: Automatically get interval size
 INTERVAL_SIZE = 10
 
 REPORT_FILE = 'report.json'
+
 
 def write_report(data):
     with open(REPORT_FILE, 'a+') as fp:
         json.dump(data, fp, indent=4)
 
 
-# ToDo:
-# Automatically get topics, domains and interval size
+def get_topics():
+    r = requests.get(API_TLSCOVID_ENDPOINT + 'get-examples')
 
-# def get_topics():
-#     r = requests.get(API_TLSCOVID_ENDPOINT + 'get-examples')
+    topics = {}
+    for idx, topics_dict in r.json().items():
+        topics.setdefault(idx, [])
+        for _, topics_list in topics_dict.items():
+            topics[idx].extend(topics_list)
+
+    return topics
 
 
-# def get_domains():
-#     r = requests.get(API_TLSCOVID_ENDPOINT + 'get-domains')
+def get_domains():
+    r = requests.get(API_TLSCOVID_ENDPOINT + 'get-domains')
+
+    domains = {}
+    for domain in r.json():
+        domains.setdefault(domain['lang'], [])
+        domains[domain['lang']].append(domain['name'])
+
+    return domains
 
 
 def get_precision(kms_retrieved, docs_total):

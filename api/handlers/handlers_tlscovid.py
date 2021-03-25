@@ -67,8 +67,6 @@ def get_cache_key(query, index, sources, step, use_headline=False):
 
     cache_key += '_' + step
 
-    print(cache_key)
-
     return cache_key
 
 

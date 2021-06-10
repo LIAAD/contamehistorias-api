@@ -3,6 +3,7 @@ import hashlib
 from datetime import datetime, date, timedelta
 import collections
 import json
+import logging
 
 from pampo import ner
 
@@ -15,6 +16,19 @@ import data_sources.arquivopt.arquivopt_domains as arquivopt_domains
 from .utils import convert_events_into_timeseries, convert_events_into_source_count
 
 from cache import cache
+
+# Setup logger
+logger = logging.getLogger('api_handler_arquivopt')
+logger.setLevel(logging.INFO)
+
+LOGGER_FORMAT = '%(asctime)s %(levelname)s %(name)s: %(message)s'
+logger_formatter = logging.Formatter(fmt=LOGGER_FORMAT)
+
+# Create console handler
+ch = logging.StreamHandler()
+ch.setFormatter(logger_formatter)
+# Add the handler to the logger
+logger.addHandler(ch)
 
 temp_summ_engine = engine.TemporalSummarizationEngine()
 arquivopt_engine = webarchive.ArquivoPT()
@@ -86,8 +100,8 @@ def get_result(payload):
     query = payload['query']
     last_years = payload['last_years']
 
-    print('Query:', query)
-    print('Last years:', last_years)
+    logger.info('Query: {0}'.format(query))
+    logger.info('Last years: {0}'.format(last_years))
 
     # If cache enabled, check whether result already in cache
     if cache_connected:
@@ -98,12 +112,12 @@ def get_result(payload):
 
         # If result already in cache, get it, do nothing and return it
         if cached_result:
-            print('get_result: Result in cache (' + str(cache_key) + ')')
+            logger.info('get_result: Result in cache ({0})'.format(cache_key))
             result = cached_result
 
         # If result not in cache, compute it, store it in cache and return it
         else:
-            print('get_result: Result not in cache')
+            logger.info('get_result: Result not in cache')
 
             date_end = datetime(year=date.today().year-1, month=12, day=31)
             date_start = date_end - timedelta(days=last_years * 365)
@@ -118,15 +132,15 @@ def get_result(payload):
             result = arquivopt_engine.toStr(result)
 
             if is_str_valid_json(result):
-                print('get_result: Result from ArquivoPT is valid. Storing in cache (' + str(cache_key) + ')')
+                logger.info('get_result: Result from ArquivoPT is valid. Storing in cache ({0})'.format(cache_key))
                 cache.set_result(cache_key, result)
             else:
-                print('get_result: Result from ArquivoPT is invalid. Not storing in cache')
+                logger.warning('get_result: Result from ArquivoPT is invalid. Not storing in cache')
                 result = []
 
     # If cache disabled, compute result and return it
     else:
-        print('get_result: Cache disabled. Computing result')
+        logger.info('get_result: Cache disabled. Computing result')
 
         date_end = datetime(year=date.today().year-1, month=12, day=31)
         date_start = date_end - timedelta(days=last_years * 365)
@@ -140,7 +154,7 @@ def get_result(payload):
         result = arquivopt_engine.toStr(result)
 
         if not is_str_valid_json(result):
-            print('get_result: Result from ArquivoPT is invalid')
+            logger.warning('get_result: Result from ArquivoPT is invalid')
             result = []
         
     return result
@@ -158,7 +172,7 @@ def get_intervals(payload):
 
     # If there are no results from arquivo search return empty list
     if not result_arquivo:
-        print('get_intervals: No results from arquivo search')
+        logger.info('get_intervals: No results from ArquivoPT search')
         return []
 
     # If cache enabled, check whether result already in cache
@@ -170,24 +184,24 @@ def get_intervals(payload):
 
         # If result already in cache, get it, do nothing and return it
         if cached_result:
-            print('get_intervals: Result in cache (' + str(cache_key) + ')')
+            logger.info('get_intervals: Result in cache ({0})'.format(cache_key))
             result = cached_result
 
         # If result not in cache, compute it, store it in cache and return it
         else:
-            print('get_intervals: Result not in cache')
+            logger.info('get_intervals: Result not in cache')
 
             result_intervals = temp_summ_engine.build_intervals(
                 result_arquivo, 'pt', query)
 
             result = temp_summ_engine.serialize(result_intervals)
 
-            print('get_intervals: Storing result in cache (' + str(cache_key) + ')')
+            logger.info('get_intervals: Storing result in cache ({0})'.format(cache_key))
             cache.set_result(cache_key, result)
 
     # If cache disabled, compute result and return it
     else:
-        print('get_intervals: Cache disabled. Computing result')
+        logger.info('get_intervals: Cache disabled. Computing result')
         result_intervals = temp_summ_engine.build_intervals(
             result_arquivo, 'pt', query)
 
@@ -207,7 +221,7 @@ def execute_engine(payload):
 
     # If there are no results from arquivo search return empty list
     if not arquivopt_engine.toObj(result_arquivo_str):
-        print('execute_engine: No results from arquivo search')
+        logger.info('execute_engine: No results from ArquivoPT search')
         return []
     
     # Build intervals
@@ -222,19 +236,18 @@ def execute_engine(payload):
 
     # If could not build intervals return empty list
     if not result_intervals:
-        print('execute_engine: Could not build intervals')
+        logger.info('execute_engine: Could not build intervals')
         return []
 
     # Stats
-    print('Time spent to get result from arquivopt:', time_spent_get_result)
+    logger.info('Time spent to get result from ArquivoPT: {0}'.format(time_spent_get_result))
 
-    print('Time spent to build intervals:', time_spent_build_intervals)
+    logger.info('Time spent to build intervals: {0}'.format(time_spent_build_intervals))
 
     result_intervals['stats']['time'] = float(
         time_spent_get_result + time_spent_build_intervals)
 
-    print('Total time spent:',
-          result_intervals['stats']['time'])
+    logger.info('Total time spent: {0}'.format(result_intervals['stats']['time']))
 
     result = result_intervals
 

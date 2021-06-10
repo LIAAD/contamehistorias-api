@@ -51,6 +51,14 @@ def get_cache_key(query, last_years, step):
     return cache_key
 
 
+def is_str_valid_json(json_str):
+    try:
+        json.loads(json_str)
+        return True
+    except:
+        return False
+
+
 def get_domains():
 
     return arquivopt_domains.news_domains_pt
@@ -109,8 +117,12 @@ def get_result(payload):
 
             result = arquivopt_engine.toStr(result)
 
-            print('get_result: Storing result in cache (' + str(cache_key) + ')')
-            cache.set_result(cache_key, result)
+            if is_str_valid_json(result):
+                print('get_result: Result from ArquivoPT is valid. Storing in cache (' + str(cache_key) + ')')
+                cache.set_result(cache_key, result)
+            else:
+                print('get_result: Result from ArquivoPT is invalid. Not storing in cache')
+                result = []
 
     # If cache disabled, compute result and return it
     else:
@@ -127,6 +139,10 @@ def get_result(payload):
 
         result = arquivopt_engine.toStr(result)
 
+        if not is_str_valid_json(result):
+            print('get_result: Result from ArquivoPT is invalid')
+            result = []
+        
     return result
 
 

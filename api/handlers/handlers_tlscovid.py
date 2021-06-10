@@ -70,6 +70,14 @@ def get_cache_key(query, index, sources, step, use_headline=False):
     return cache_key
 
 
+def is_str_valid_json(json_str):
+    try:
+        json.loads(json_str)
+        return True
+    except:
+        return False
+
+
 def get_indices():
 
     return tlscovid_engine.get_all_indices()
@@ -143,8 +151,12 @@ def get_result(payload):
 
             result = tlscovid_engine.toStr(result)
 
-            print('get_result: Storing result in cache (' + str(cache_key) + ')')
-            cache.set_result(cache_key, result)
+            if is_str_valid_json(result):
+                print('get_result: Result from Elasticsearch is valid. Storing in cache (' + str(cache_key) + ')')
+                cache.set_result(cache_key, result)
+            else:
+                print('get_result: Result from Elasticsearch is invalid. Not storing in cache')
+                result = []
 
     # If cache disabled, compute result and return it
     else:
@@ -158,6 +170,10 @@ def get_result(payload):
         result = tlscovid_engine.getResult(query, **params)
 
         result = tlscovid_engine.toStr(result)
+
+        if not is_str_valid_json(result):
+            print('get_result: Result from Elasticsearch is invalid')
+            result = []
 
     return result
 
